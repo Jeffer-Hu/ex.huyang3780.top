@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李明的个人网站 | 设计师 & 开发者</title>
+    <meta name="description" content="李明是一名全栈设计师和开发者，专注于创造美观实用的数字产品。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* 英雄区域 */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .hero-btns .btn {
+            margin: 0 10px;
+        }
+        
+        .hero-btns .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .hero-btns .btn-outline:hover {
+            background: white;
+            color: var(--dark-color);
+        }
+        
+        /* 关于我 */
+        #about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        /* 时间轴 */
+        .timeline {
+            margin-top: 50px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary-color);
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h4 {
+            margin-bottom: 10px;
+        }
+        
+        /* 作品集 */
+        #portfolio {
+            background-color: var(--light-color);
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            margin: 0 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        .portfolio-info h4 {
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .portfolio-tag {
+            padding: 5px 10px;
+            background: #eee;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        
+        /* 博客 */
+        #blog {
+            background-color: white;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 20px;
+        }
+        
+        .blog-date {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .blog-content h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .blog-content p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .blog-tag {
+            padding: 3px 8px;
+            background: #eee;
+            border-radius: 3px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        /* 联系方式 */
+        #contact {
+            background-color: var(--light-color);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--dark-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* 暗黑模式切换 */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--dark-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 999;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 暗黑模式样式 */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode header {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .logo, 
+        body.dark-mode .nav-links a {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .section {
+            background-color: #1e1e1e;
+        }
+        
+        body.dark-mode .portfolio-item,
+        body.dark-mode .blog-card {
+            background-color: #2d2d2d;
+        }
+        
+        body.dark-mode .contact-form input,
+        body.dark-mode .contact-form textarea {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">李明<span>.</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#portfolio">作品集</a></li>
+                    <li><a href="#blog">博客</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>你好，我是李明</h1>
+                <p>一名全栈设计师和开发者，专注于创造美观实用的数字产品。</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn">查看作品</a>
+                    <a href="#contact" class="btn btn-outline">联系我</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="李明">
+                </div>
+                <div class="about-text">
+                    <h3>一名充满激情的创意专业人士</h3>
+                    <p>我是一名全栈设计师和开发者，拥有5年以上的行业经验。我热衷于将创意与技术相结合，打造既美观又实用的数字产品。</p>
+                    <p>我的工作哲学是"设计为先，代码为实"。我相信好的设计应该不仅看起来漂亮，还要提供无缝的用户体验。</p>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>UI/UX设计</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>前端开发</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>品牌设计</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <h3 style="text-align: center; margin: 50px 0 30px;">我的经历</h3>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 至今</div>
+                        <h4>高级UI/UX设计师 - 创新科技</h4>
+                        <p>负责公司核心产品的用户体验设计和界面开发，带领5人设计团队。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2018 - 2020</div>
+                        <h4>硕士 - 数字媒体设计</h4>
+                        <p>清华大学数字媒体设计专业，研究方向为人机交互。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016 - 2018</div>
+                        <h4>初级设计师 - 创意工作室</h4>
+                        <p>参与多个品牌设计和网站开发项目，积累了丰富的实践经验。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品集 -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">我的作品</h2>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="design">设计</button>
+                <button class="filter-btn" data-filter="development">开发</button>
+                <button class="filter-btn" data-filter="branding">品牌</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="项目1">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>电商平台UI设计</h4>
+                        <p>为知名电商平台设计的全新用户界面，提升转化率35%。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">UI设计</span>
+                            <span class="portfolio-tag">用户体验</span>
+                            <span class="portfolio-tag">Figma</span>
+                        </div>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="development">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="项目2">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>企业管理系统</h4>
+                        <p>使用React和Node.js开发的全功能企业资源管理系统。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d41e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="项目3">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>咖啡品牌重塑</h4>
+                        <p>为本地咖啡连锁店设计的全新品牌形象和包装系统。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">品牌设计</span>
+                            <span class="portfolio-tag">包装设计</span>
+                            <span class="portfolio-tag">视觉识别</span>
+                        </div>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="项目4">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>移动应用设计</h4>
+                        <p>健康追踪应用的UI/UX设计，获得2022年设计奖项。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">移动设计</span>
+                            <span class="portfolio-tag">用户体验</span>
+                            <span class="portfolio-tag">原型设计</span>
+                        </div>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="development">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="项目5">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>个人博客系统</h4>
+                        <p>使用Vue.js和Express构建的全栈博客平台。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Vue.js</span>
+                            <span class="portfolio-tag">Express</span>
+                            <span class="portfolio-tag">REST API</span>
+                        </div>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="项目6">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>科技公司品牌设计</h4>
+                        <p>为初创科技公司设计的完整品牌识别系统。</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">品牌策略</span>
+                            <span class="portfolio-tag">视觉设计</span>
+                            <span class="portfolio-tag">标识设计</span>
+                        </div>
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客 -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">最新博客</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="博客1">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">2023年6月15日</div>
+                        <h4>2023年UI设计趋势分析</h4>
+                        <p>探讨今年最值得关注的UI设计趋势，包括微交互、玻璃拟态和3D元素的应用。</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">设计</span>
+                            <span class="blog-tag">趋势</span>
+                        </div>
+                        <a href="#" class="btn">阅读更多</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="博客2">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">2023年5月22日</div>
+                        <h4>React性能优化技巧</h4>
+                        <p>分享10个提升React应用性能的实用技巧，让你的应用运行更加流畅。</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">开发</span>
+                            <span class="blog-tag">React</span>
+                        </div>
+                        <a href="#" class="btn">阅读更多</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d41e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="博客3">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">2023年4月10日</div>
+                        <h4>设计师如何与开发者高效协作</h4>
+                        <p>探讨设计师和开发者之间如何建立高效的协作流程，减少沟通成本。</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">协作</span>
+                            <span class="blog-tag">工作流程</span>
+                        </div>
+                        <a href="#" class="btn">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>让我们一起创造些很棒的东西</h3>
+                    <p>如果你有任何问题或想讨论潜在的合作机会，请随时联系我。我通常会在24小时内回复。</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>邮箱</h4>
+                                <p>liming@example.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>电话</h4>
+                                <p>+86 138 1234 5678</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>地址</h4>
+                                <p>北京市海淀区中关村大街1号</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <input type="text" placeholder="你的名字" required>
+                    <input type="email" placeholder="你的邮箱" required>
+                    <input type="text" placeholder="主题">
+                    <textarea placeholder="你的消息" required></textarea>
+                    <button type="submit" class="btn">发送消息</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">李明<span>.</span></a>
+                <ul class="footer-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#portfolio">作品集</a></li>
+                    <li><a href="#blog">博客</a></li>
+                    <li><a href="#contact">联系我</a></li>
+                </ul>
+                <p class="copyright">© 2023 李明. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 暗黑模式切换 -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <script>
+        // 移动端导航菜单切换
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // 关闭菜单当点击链接
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // 作品集筛选
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 更新活动按钮
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                // 筛选项目
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 暗黑模式切换
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // 切换图标
+            const icon = darkModeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+        
+        // 滚动时导航栏效果
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                document.querySelector('header').style.background = 'rgba(255, 255, 255, 0.95)';
+                document.querySelector('header').style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                document.querySelector('header').style.background = 'white';
+                document.querySelector('header').style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
+</body>
+</html>
