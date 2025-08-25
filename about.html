@@ -6,6 +6,75 @@
     <title>Jeffery Hu | 个人信息</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css.css">
+    <style>
+        /* 新增样式：个人信息和时间线布局 */
+        .profile-timeline-layout {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .profile-top-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+        }
+        
+        .profile-basic-info h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .profile-detail-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-detail-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .profile-top-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .profile-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- 粒子背景 -->
@@ -18,9 +87,9 @@
                 <i class="fas fa-microchip"></i>
                 <span class="neon-text">Jeffery Hu</span>
             </a>
-			<button class="mobile-menu-btn">
-					<i class="fas fa-bars"></i>
-			</button>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html">首页</a></li>
                 <li><a href="about.html">个人信息</a></li>
@@ -32,180 +101,147 @@
 
     <!-- 主内容区 -->
     <main class="main-content">
-        <h1 class="section-title neon-text">个人信息</h1>
-        
-        <div class="profile-container">
-            <div class="profile-sidebar">
-                <img src="pic.jpg" alt="Jeffery Hu" class="profile-avatar">
-                <h2 class="profile-name">Jeffery Hu</h2>
-                <p class="profile-title">嵌入式开发者 | 编程爱好者</p>
-                
-                <div class="profile-info">
-                    <div class="profile-info-item">
-                        <div class="profile-info-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <span>男 | 16岁</span>
-                    </div>
-                    <div class="profile-info-item">
-                        <div class="profile-info-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <span>开封高中 | 高一</span>
-                    </div>
-                    <div class="profile-info-item">
-                        <div class="profile-info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <span>河南开封</span>
-                    </div>
-                    <div class="profile-info-item">
-                        <div class="profile-info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <span>huyang3780@163.com</span>
-                    </div>
-                    <div class="profile-info-item">
-                        <div class="profile-info-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <span>github.com/Jeffer-Hu</span>
-                    </div>
-					<div class="profile-info-item">
-						<div class="profile-info-icon">
-							<i class="fab fa-weixin"></i>
-						</div>
-						<div class="contact-text">
-                        <p>hy17837802560</p>
+		<section style="margin-top: 40px;">
+			<h1 class="section-title neon-text">个人信息</h1>
+			
+			<div class="profile-timeline-layout">
+				<!-- 顶部个人信息栏 -->
+				<div class="profile-top-section">
+					<img src="pic.jpg" alt="Jeffery Hu" class="profile-avatar">
+					<div class="profile-basic-info">
+						<h1>Jeffery Hu</h1>
+						<p>嵌入式开发者 | 编程爱好者</p>
+						<div class="profile-details">
+							<div class="profile-detail-item">
+								<div class="profile-detail-icon">
+									<i class="fas fa-user"></i>
+								</div>
+								<span>男</span>
+							</div>
+							<div class="profile-detail-item">
+								<div class="profile-detail-icon">
+									<i class="fas fa-graduation-cap"></i>
+								</div>
+								<span>学生在读</span>
+							</div>
+							<div class="profile-detail-item">
+								<div class="profile-detail-icon">
+									<i class="fas fa-map-marker-alt"></i>
+								</div>
+								<span>中国 · 河南</span>
+							</div>
+							<div class="profile-detail-item">
+								<div class="profile-detail-icon">
+									<i class="fas fa-envelope"></i>
+								</div>
+								<span>contact@huyang3780.top</span>
+							</div>
 						</div>
 					</div>
-					<div class="profile-info-item">
-						<div class="profile-info-icon">
-							<i class="fab fa-qq"></i>
+				</div>
+				
+				<!-- 个人经历时间线 -->
+				<div class="profile-section">
+					<h3>个人经历</h3>
+					<div class="timeline">
+						<div class="timeline-item">
+							<div class="timeline-date">2018</div>
+							<div class="timeline-content">
+								<h3>初次接触编程</h3>
+								<p>在小学信息技术课上第一次接触Scratch图形化编程,被代码创造世界的魅力所吸引,开始自学基础编程知识。</p>
+							</div>
 						</div>
-						<div class="contact-text">
-							<p>1767185192</p>
+						<div class="timeline-item">
+							<div class="timeline-date">2019</div>
+							<div class="timeline-content">
+								<h3>学习网页开发</h3>
+								<p>通过网络课程学习基础HTML、CSS和JavaScript,搭建了图形化本地网页展览。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2021</div>
+							<div class="timeline-content">
+								<h3>初探编程世界</h3>
+								<p>在初中信息技术课上接触了C++语言,开始学习高级编程语言。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2022</div>
+							<div class="timeline-content">
+								<h3>学习Python语言</h3>
+								<p>购置大量Python书籍,深入自学Python语言,成功熟练掌握并运用其解决了各种问题。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2023</div>
+							<div class="timeline-content">
+								<h3>入门DIY领域</h3>
+								<p>备置许多常用工具,学习掌握了万用表、热熔枪、电焊器等器具的用法,成功修复损坏设备。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2024</div>
+							<div class="timeline-content">
+								<h3>接触嵌入式开发</h3>
+								<p>自读模电数电等基础书籍,开始自学自动化原理,使用51开发板了解单片机原理。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2024</div>
+							<div class="timeline-content">
+								<h3>深入单片机领域</h3>
+								<p>获得人生中第一块Arduino开发板,正式学习嵌入式系统和硬件编程,完成多个小项目如智能家居控制和声控小车。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2025</div>
+							<div class="timeline-content">
+								<h3>创建个人网页</h3>
+								<p>在GitHub上发布开源仓库,购买域名链接仓库,搭建起第一个个人网页。</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<div class="timeline-date">2025</div>
+							<div class="timeline-content">
+								<h3>拓展新领域</h3>
+								<p>开始学习原理图的绘制与PCB电路板的设计,期待能做出自己设计的第一块电路板。</p>
+							</div>
 						</div>
 					</div>
-                </div>
-            </div>
-            
-            <div class="profile-main">
-                <div class="profile-section">
-                    <h3>个人简介</h3>
-                    <p>我是一名对嵌入式系统和编程充满热情的学生，目前就读于开封高中高一。从初中开始接触编程，逐渐发展出对硬件编程和嵌入式系统的浓厚兴趣。</p>
-                </div>
-                
-                <div class="profile-section">
-                    <h3>技术技能</h3>
-                    <div class="skills-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 10px;">编程语言</h4>
-                            <ul style="list-style: none;">
-                                <li style="margin-bottom: 8px;">Python (精通)</li>
-                                <li style="margin-bottom: 8px;">C/C++ (熟练)</li>
-                                <li style="margin-bottom: 8px;">JavaScript (基础)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 10px;">嵌入式平台</h4>
-                            <ul style="list-style: none;">
-                                <li style="margin-bottom: 8px;">Arduino (精通)</li>
-                                <li style="margin-bottom: 8px;">STM32 (熟练)</li>
-                                <li style="margin-bottom: 8px;">ESP32 (熟练)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 10px;">前端技术</h4>
-                            <ul style="list-style: none;">
-                                <li style="margin-bottom: 8px;">HTML/CSS (熟练)</li>
-                                <li style="margin-bottom: 8px;">Vue.js (基础)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--primary); margin-bottom: 10px;">其他技能</h4>
-                            <ul style="list-style: none;">
-                                <li style="margin-bottom: 8px;">PCB设计 (基础)</li>
-                                <li style="margin-bottom: 8px;">3D打印 (基础)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="profile-section">
-                    <h3>个人经历</h3>
-                    <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2018</div>
-                    <div class="timeline-content">
-                        <h3>初次接触编程</h3>
-                        <p>在小学信息技术课上第一次接触Scratch图形化编程,被代码创造世界的魅力所吸引,开始自学基础编程知识。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2019</div>
-                    <div class="timeline-content">
-                        <h3>学习网页开发</h3>
-                        <p>通过网络课程学习基础HTML、CSS和JavaScript,搭建了图形化本地网页展览。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2021</div>
-                    <div class="timeline-content">
-                        <h3>初探编程世界</h3>
-                        <p>在初中信息技术课上接触了C++语言,开始学习高级编程语言。</p>
-                    </div>
-                </div>
-				<div class="timeline-item">
-                    <div class="timeline-date">2022</div>
-                    <div class="timeline-content">
-                        <h3>学习Python语言</h3>
-                        <p>购置大量Python书籍,深入自学Python语言,成功熟练掌握并运用其解决了各种问题。</p>
-                    </div>
-                </div>
-				<div class="timeline-item">
-                    <div class="timeline-date">2023</div>
-                    <div class="timeline-content">
-                        <h3>入门DIY领域</h3>
-                        <p>备置许多常用工具,学习掌握了万用表、热熔枪、电焊器等器具的用法,成功修复损坏设备。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>接触嵌入式开发</h3>
-                        <p>自读模电数电等基础书籍,开始自学自动化原理,使用51开发板了解单片机原理。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>深入单片机领域</h3>
-                        <p>获得人生中第一块Arduino开发板,正式学习嵌入式系统和硬件编程,完成多个小项目如智能家居控制和声控小车。</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2025</div>
-                    <div class="timeline-content">
-                        <h3>创建个人网页</h3>
-                        <p>在GitHub上发布开源仓库,购买域名链接仓库,搭建起第一个个人网页。</p>
-                    </div>
-                </div>
-				<div class="timeline-item">
-                    <div class="timeline-date">2025</div>
-                    <div class="timeline-content">
-                        <h3>拓展新领域</h3>
-                        <p>开始学习原理图的绘制与PCB电路板的设计,期待能做出自己设计的第一块电路板。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+				</div>
+				
+				<!-- 技术技能部分 -->
+				<div class="profile-section">
+					<h3>技术技能</h3>
+				</div>
+				<div class="profile-top-section">
+					<div class="skills-grid" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
+						<div>
+							<h4 style="color: var(--primary); margin-bottom: 10px;">编程语言</h4>
+							<pre>Python (精通)      C/C++ (熟练)      SQL (基础)     Java (略知)</pre>
+						</div>
+						<div>
+							<h4 style="color: var(--primary); margin-bottom: 10px;">嵌入式平台</h4>
+							<pre>Arduino (精通)       ESP8266 (熟练)       ESP32 (熟练)       STM32 (略知)</pre>
+						</div>
+						<div>
+							<h4 style="color: var(--primary); margin-bottom: 10px;">前端技术</h4>
+							<pre>HTML (熟练)       CSS (熟练)      JavaScript (基础)       Vue.js (基础)</pre>
+						</div>
+						<div>
+							<h4 style="color: var(--primary); margin-bottom: 10px;">其他技能</h4>
+							<pre>PPT设计 (精通)       PCB设计 (基础)       3D打印 (基础)       Linux内核 (基础)</pre>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
     </main>
 
     <!-- 页脚 -->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Jeffer-Hu" class="social-link"><i class="fab fa-github"></i></a>
             <a href="https://www.bilibili.com/" class="social-link"><i class="fab fa-bilibili"></i></a>
             <a href="https://www.zhihu.com/" class="social-link"><i class="fab fa-zhihu"></i></a>
             <a href="http://www.kaigao.com/" class="social-link"><i class="fas fa-rss"></i></a>
