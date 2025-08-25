@@ -6,6 +6,55 @@
     <title>Jeffery Hu | 留言板</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css.css">
+    <style>
+        /* 联系信息样式 */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            background: var(--card-bg);
+            border-radius: 50px;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--dark);
+        }
+
+        .contact-text h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
     <!-- 粒子背景 -->
@@ -32,109 +81,45 @@
 
     <!-- 主内容区 -->
     <main class="main-content">
-        <h1 class="section-title neon-text">留言板</h1>
-        
-        <div class="guestbook-form">
-            <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">给我留言</h2>
-            <form id="messageForm" action="https://getform.io/f/bronnjva" method="POST">
-                <div class="form-group">
-                    <label for="name">姓名</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">邮箱</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">留言内容</label>
-                    <textarea id="message" name="message" class="form-control" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">提交留言</button>
-            </form>
-            <!-- 提交成功提示 -->
-            <div id="submitSuccess" style="display: none; text-align: center; margin-top: 20px; color: var(--primary);">
-                <i class="fas fa-check-circle" style="font-size: 2em;"></i>
-                <p>留言已发送！我会尽快回复您。</p>
-            </div>
-        </div>
-        
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="color: var(--primary); margin-bottom: 20px; text-align: center;">自定义网页引导</h2>
-            
-            <div class="accordion">
-                <div class="accordion-header">
-                    <h3>嵌入式开发资源</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p>以下是我收集的一些嵌入式开发相关资源：</p>
-                    <ul style="list-style: none; margin-top: 15px;">
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://www.stmcu.org.cn/" target="_blank" style="color: var(--primary);">STM32中文官网</a> - STM32开发资源
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://www.arduino.cc/" target="_blank" style="color: var(--primary);">Arduino官网</a> - Arduino开发平台
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/latest/esp32/" target="_blank" style="color: var(--primary);">ESP-IDF文档</a> - ESP32开发框架
-                        </li>
-                    </ul>
+        <!-- 联系我部分 -->
+        <section style="margin-top: 80px;">
+            <h2 class="section-title neon-text">联系我</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>你可以通过以下方式联系我</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>微信</h4>
+                            <p>hy17837802560</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>邮箱</h4>
+                            <p>contact@huyang3780.top</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-qq"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>QQ</h4>
+                            <p>huyang3780</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="accordion">
-                <div class="accordion-header">
-                    <h3>编程学习路径</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p>我推荐的编程学习路径：</p>
-                    <ol style="margin-top: 15px; padding-left: 20px;">
-                        <li style="margin-bottom: 10px;">从Python或JavaScript开始学习编程基础</li>
-                        <li style="margin-bottom: 10px;">学习数据结构与算法</li>
-                        <li style="margin-bottom: 10px;">选择一门系统级语言如C/C++深入学习</li>
-                        <li style="margin-bottom: 10px;">学习计算机组成原理和操作系统</li>
-                        <li style="margin-bottom: 10px;">探索特定领域如嵌入式、Web开发或AI</li>
-                    </ol>
-                </div>
-            </div>
-            
-            <div class="accordion">
-                <div class="accordion-header">
-                    <h3>抽象论文分享</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <p>研究学术不叫我是吧.jpg：</p>
-                    <ul style="list-style: none; margin-top: 15px;">
-						<li style="margin-bottom: 10px;">
-                            <a href="https://fanyi.youdao.com/" target="_blank" style="color: var(--primary);">有道翻译</a> - 配合翻译食用更佳
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://www.paradigmpress.org/jimr/article/view/1529" target="_blank" style="color: var(--primary);">男性健康领域权威</a> - 权威论文
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://arxiv.org/abs/2303.17626" target="_blank" style="color: var(--primary);">宇宙中能存放多少只鸡？</a> - 《老人与鸡》
-                        </li>
-						<li style="margin-bottom: 10px;">
-                            <a href="https://arxiv.org/abs/2304.00220" target="_blank" style="color: var(--primary);">为什么电线总是缠绕在我的包里？</a> - 遇事不决，量子力学；解释不通，穿越时空
-                        </li><li style="margin-bottom: 10px;">
-                            <a href="https://arxiv.org/abs/hep-ph/0305062" target="_blank" style="color: var(--primary);">利用超高能量中微子束摧毁核弹的方法</a> - 来自三体人的馈赠
-                        </li><li style="margin-bottom: 10px;">
-                            <a href="https://arxiv.org/abs/1204.0162" target="_blank" style="color: var(--primary);">无罪的证明</a> - 教授之车的救赎
-                        </li>
-                        <li style="margin-bottom: 10px;">
-                            <a href="https://wenku.baidu.com/view/1ab74fb169dc5022aaea004b.html?fr=xueshu&_wkts_=1696347022072" target="_blank" style="color: var(--primary);">既发散又收敛的无穷级数</a> - 抽象又具体的数学
-                        </li>
-						<li style="margin-bottom: 10px;">
-                            <a href="https://doi.org/10.1038/s41570-023-00523-9" target="_blank" style="color: var(--primary);">现代化学是垃圾</a> - 现代化学不存在了
-                        </li><li style="margin-bottom: 10px;">
-                            <a href="https://www.scs.stanford.edu/~dm/home/papers/remove.pdf" target="_blank" style="color: var(--primary);">来自Ph.D的抽象</a> - “如听仙乐耳暂明”
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        </section>
+
+		<section style="margin-top: 220px;">
+		</section>
     </main>
 
     <!-- 页脚 -->
@@ -150,24 +135,5 @@
 
     <script src="js.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // 检查URL参数显示成功提示
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('submit') === 'success') {
-            document.getElementById('submitSuccess').style.display = 'block';
-            document.getElementById('messageForm').style.display = 'none';
-        }
-
-        // 表单提交处理（可选：前端验证）
-        document.getElementById('messageForm').addEventListener('submit', function(e) {
-            // 可在此添加额外验证逻辑
-            // 例如：检查邮箱格式
-            const email = document.getElementById('email').value;
-            if (!email.includes('@')) {
-                e.preventDefault();
-                alert('请输入有效的邮箱地址！');
-            }
-        });
-    </script>
 </body>
 </html>
