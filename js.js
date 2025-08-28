@@ -111,48 +111,49 @@ document.querySelector('.mobile-menu-btn').addEventListener('click', function() 
     }
 });
 
+// 等待页面完全加载
 document.addEventListener('DOMContentLoaded', function() {
   // 创建弹窗容器
   const modal = document.createElement('div');
   modal.id = 'contactModal';
   modal.style.cssText = `
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	z-index: 9999;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   `;
   
   // 创建弹窗内容
   const modalContent = document.createElement('div');
   modalContent.style.cssText = `
-	background-color: white;
-	padding: 2rem;
-	border-radius: 10px;
-	width: 90%;
-	max-width: 500px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-	transform: translateY(-20px);
-	transition: transform 0.3s ease;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
   `;
   
   // 创建标题
   const title = document.createElement('h3');
-  title.textContent = 'Attention: ';
+  title.textContent = '联系方式';
   title.style.cssText = `
-	margin-top: 0;
-	color: #333;
-	border-bottom: 1px solid #eee;
-	padding-bottom: 0.5rem;
-	margin-bottom: 1rem;
+    margin-top: 0;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
   `;
   
   // 创建联系信息（请根据您的实际信息修改以下内容）
@@ -165,39 +166,39 @@ document.addEventListener('DOMContentLoaded', function() {
 	<p><strong>日本語：</strong>このページはv1.5.0で、新しいページは@huyang3780.topにあります。</p>
   `;
   contactInfo.style.cssText = `
-	color: #666;
-	line-height: 1.6;
-	margin-bottom: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
   `;
   
   // 创建关闭按钮
   const closeBtn = document.createElement('button');
-  closeBtn.textContent = 'Close';
+  closeBtn.textContent = '关闭';
   closeBtn.style.cssText = `
-	background-color: #007bff;
-	color: white;
-	border: none;
-	padding: 0.5rem 1.5rem;
-	border-radius: 5px;
-	cursor: pointer;
-	font-size: 1rem;
-	transition: background-color 0.2s;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
   `;
   
   // 关闭按钮悬停效果
   closeBtn.addEventListener('mouseover', function() {
-	this.style.backgroundColor = '#0056b3';
+    this.style.backgroundColor = '#0056b3';
   });
   
   closeBtn.addEventListener('mouseout', function() {
-	this.style.backgroundColor = '#007bff';
+    this.style.backgroundColor = '#007bff';
   });
   
   // 关闭弹窗功能
   closeBtn.addEventListener('click', function() {
-	modal.style.opacity = '0';
-	modal.style.visibility = 'hidden';
-	modalContent.style.transform = 'translateY(-20px)';
+    modal.style.opacity = '0';
+    modal.style.visibility = 'hidden';
+    modalContent.style.transform = 'translateY(-20px)';
   });
   
   // 组装弹窗
@@ -209,10 +210,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // 显示弹窗（添加延迟以确保动画效果可见）
   setTimeout(function() {
-	modal.style.opacity = '1';
-	modal.style.visibility = 'visible';
-	modalContent.style.transform = 'translateY(0)';
+    modal.style.opacity = '1';
+    modal.style.visibility = 'visible';
+    modalContent.style.transform = 'translateY(0)';
   }, 500);
 });
+
 
 
